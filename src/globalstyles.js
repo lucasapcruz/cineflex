@@ -23,6 +23,9 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: Roboto;
+	font-style: normal;
+	box-sizing: border-box;
 }
 
 article, aside, details, figcaption, figure, 
