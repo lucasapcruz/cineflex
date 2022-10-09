@@ -11,7 +11,7 @@ export default function Header(){
 }
 
 const HeaderContainer = styled.div`
-    position: absolute;
+    position: fixed;
     height: 67px;
     width: 100%;
     top: 0px;
