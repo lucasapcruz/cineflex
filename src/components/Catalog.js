@@ -14,7 +14,6 @@ export default function Catalog(){
         const promise = axios.get(`${baseUrl}/movies`)
 
         promise.then((response) => {
-            console.log(response.data)
             setMovies(response.data)
         })
         
@@ -24,17 +23,17 @@ export default function Catalog(){
     
     return(
             <CatalogContainer>
-                {movies?.map((movie) => <Movie posterURL={movie.posterURL}/>)}
+                {movies?.map((movie) => <Movie key={movie.id} posterURL={movie.posterURL} title={movie.title}/>)}
             </CatalogContainer>
     )
 }
 
 
-function Movie({posterURL}){
+function Movie({posterURL, title}){
 
     return(
         <FramedContainer>
-            <img src={posterURL}></img>
+            <img src={posterURL} alt={title}></img>
         </FramedContainer> 
     )
 }
