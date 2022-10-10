@@ -17,7 +17,7 @@ function DayOption({ date, weekday, showtimes }) {
 
     return (
         <DayOptionContainer>
-            <p>{weekday} - {date}</p>
+            <p data-identifier="session-date" >{weekday} - {date}</p>
             <ShowtimeContainer>
                 {showtimes.map((showtime) => <ShowtimeOption key={showtime.id} time={showtime.name} id={showtime.id} />)}
             </ShowtimeContainer>
@@ -35,7 +35,7 @@ function ShowtimeOption({ time, id }) {
 
     return (
         <>
-            <button onClick={() => selectSession(id)}>
+            <button data-identifier="hour-minute-btn" onClick={() => selectSession(id)}>
                 <p>{time}</p>
             </button>
         </>

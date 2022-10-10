@@ -51,13 +51,13 @@ export default function Checkout({ chosenSeats, client, setClient }) {
                 <Container>
                     <InputBox>
                         <label htmlFor="name">Nome do comprador:</label>
-                        <input type="name" value={name} required placeholder="Digite seu nome..." onChange={e => setName(e.target.value)} />
+                        <input data-identifier="buyer-name-input" type="name" value={name} required placeholder="Digite seu nome..." onChange={e => setName(e.target.value)} />
                     </InputBox>
                     <InputBox>
                         <label htmlFor="cpf">CPF do comprador:</label>
-                        <input type="cpf" value={cpf} required placeholder="Digite seu CPF..." onChange={e => setCpf(e.target.value)} />
+                        <input data-identifier="buyer-cpf-input" type="cpf" value={cpf} required placeholder="Digite seu CPF..." onChange={e => setCpf(e.target.value)} />
                     </InputBox>
-                    <button type="submit">Reservar assento(s)</button>
+                    <button data-identifier="reservation-btn" type="submit">Reservar assento(s)</button>
                 </Container>
             </form>
         </>

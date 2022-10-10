@@ -20,7 +20,7 @@ export default function SucessPage({ movie, session, chosenSeats, client }) {
                     session={session}
                     chosenSeats={chosenSeats}
                     client={client} />
-                <HomeBtn onClick={backToHome}>Voltar pra Home</HomeBtn>
+                <HomeBtn data-identifier="back-to-home-btn" onClick={backToHome}>Voltar pra Home</HomeBtn>
             </Content>
         </>
     )

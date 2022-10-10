@@ -40,7 +40,7 @@ function Movie({posterURL, title, id}){
     }
 
     return(
-        <FramedContainer>
+        <FramedContainer data-identifier="movie-outdoor">
             <img src={posterURL} alt={title} onClick={() => selectMovie(id)}></img>
         </FramedContainer> 
     )

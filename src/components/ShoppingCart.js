@@ -7,10 +7,10 @@ export default function ShoppingCart({ title, posterURL, session}) {
     return (
         <>
             <Container>
-                <FramedContainer>
+                <FramedContainer data-identifier="movie-img-preview">
                     <img src={posterURL} alt={title}/>
                 </FramedContainer>
-                <MovieInfoContainer>
+                <MovieInfoContainer data-identifier="movie-and-session-infos-preview">
                     <p>{title}</p>
                     {session != undefined? <p>{session.date} - {session.showtime}</p> : <p></p>}
                 </MovieInfoContainer>

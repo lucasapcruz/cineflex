@@ -6,17 +6,17 @@ export default function Order({ movie, session, chosenSeats, client }) {
             <Container>
                 <Summary>
                     <h2>Filmes e Sessao</h2>
-                    <p>{movie.title}</p>
-                    <p>{session.date} {session.showtime}</p>
+                    <p data-identifier="movie-session-infos-reserve-finished">{movie.title}</p>
+                    <p data-identifier="movie-session-infos-reserve-finished">{session.date} {session.showtime}</p>
                 </Summary>
                 <Summary>
                     <h2>Ingressos</h2>
-                    {chosenSeats.map((seat) => <p>Assento {seat}</p>)}
+                    {chosenSeats.map((seat) => <p data-identifier="seat-infos-reserve-finished">Assento {seat}</p>)}
                 </Summary>
                 <Summary>
                     <h2>Comprador</h2>
-                    <p>Nome: {client.name}</p>
-                    <p>CPF: {client.cpf}</p>
+                    <p data-identifier="buyer-infos-reserve-finished">Nome: {client.name}</p>
+                    <p data-identifier="buyer-infos-reserve-finished">CPF: {client.cpf}</p>
                 </Summary>
             </Container>
         </>

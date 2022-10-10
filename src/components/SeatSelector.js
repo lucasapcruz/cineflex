@@ -9,15 +9,15 @@ export default function SeatSelector({ seats, chosenSeats, setChosenSeats }) {
                 </SeatsContainer>
                 <Legend>
                     <LegendItem>
-                        <SelectedCircle/>
+                        <SelectedCircle data-identifier="seat-selected-subtitle"/>
                         <p>Selecionado</p>
                     </LegendItem>
                     <LegendItem>
-                        <AvailableCircle/>
+                        <AvailableCircle data-identifier="seat-available-subtitle"/>
                         <p>Disponível</p>
                     </LegendItem>
                     <LegendItem>
-                        <NotAvailableCircle/>
+                        <NotAvailableCircle data-identifier="seat-unavailable-subtitle"/>
                         <p>Indisponível</p>
                     </LegendItem>
                 </Legend>
@@ -36,7 +36,7 @@ function Seat({ id, name, isAvailable, chosenSeats, setChosenSeats }) {
 
     return (
         <>
-            <SeatStyle name={name} isAvailable={isAvailable} wasChosen={wasChosen} onClick={() => reserveSeat(id)}>
+            <SeatStyle data-identifier="seat" name={name} isAvailable={isAvailable} wasChosen={wasChosen} onClick={() => reserveSeat(id)}>
                 <p>{name}</p>
             </SeatStyle>
         </>
