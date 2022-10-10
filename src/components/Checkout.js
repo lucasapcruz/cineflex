@@ -4,10 +4,10 @@ import baseUrl from "../url"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
-export default function IdentificationBox({ chosenSeats, movie, day }) {
+export default function Checkout({ chosenSeats, client, setClient }) {
     const navigate = useNavigate()
 
-    const [email, setEmail] = useState("")
+    const [name, setName] = useState("")
     const [cpf, setCpf] = useState("")
 
     const [error, setError] = useState(false)
@@ -18,7 +18,7 @@ export default function IdentificationBox({ chosenSeats, movie, day }) {
 
             const order = {
                 ids: chosenSeats,
-                email: email,
+                name: name,
                 cpf: cpf
             }
 
@@ -29,22 +29,17 @@ export default function IdentificationBox({ chosenSeats, movie, day }) {
 
 
             promise.then((response) => {
-                navigate("/sucesso",
-                    {
-                        movie: movie,
-                        day: day,
-                        ids: chosenSeats,
-                        client: {
-                            email: email,
-                            cpf: cpf
-                        }
-                    })
+                navigate("/sucesso")
+                const clientObj = { ...client }
+                clientObj.name = name
+                clientObj.cpf = cpf
+                setClient(clientObj)
             })
 
             promise.catch((response) => {
                 setError(true)
             })
-        }else{
+        } else {
             alert("Escolha pelo menos 1 assento")
         }
 
@@ -54,10 +49,14 @@ export default function IdentificationBox({ chosenSeats, movie, day }) {
         <>
             <form onSubmit={bookSeats}>
                 <Container>
-                    <label for="name">Nome do comprador:</label>
-                    <input type="name" value={email} required onChange={e => setEmail(e.target.value)} />
-                    <label for="cpf">CPF do comprador:</label>
-                    <input type="cpf" value={cpf} required onChange={e => setCpf(e.target.value)} />
+                    <InputBox>
+                        <label htmlFor="name">Nome do comprador:</label>
+                        <input type="name" value={name} required placeholder="Digite seu nome..." onChange={e => setName(e.target.value)} />
+                    </InputBox>
+                    <InputBox>
+                        <label htmlFor="cpf">CPF do comprador:</label>
+                        <input type="cpf" value={cpf} required placeholder="Digite seu CPF..." onChange={e => setCpf(e.target.value)} />
+                    </InputBox>
                     <button type="submit">Reservar Assentos</button>
                 </Container>
             </form>
@@ -70,18 +69,6 @@ const Container = styled.div`
     align-items: center;
     flex-direction: column;
     margin-top:44px;
-
-    input{
-        height: 51px;
-        width: 327px;
-    }
-
-    label{
-        font-size: 18px;
-        line-height: 21px;
-        font-weight: 400;
-        color: #293845;
-    }
     
     button{
         background-color: #E8833A;
@@ -93,5 +80,24 @@ const Container = styled.div`
         border: none;
         border-radius: 3px;
         margin-top: 57px;
+    }
+`
+
+const InputBox = styled.div`
+    input{
+        height: 51px;
+        width: 327px;
+        font-style: italic;
+        font-size: 18px;
+        line-height: 21px;
+        border:1px solid #D5D5D5;
+        font-weight: 400;
+    }
+
+    label{
+        font-size: 18px;
+        line-height: 21px;
+        font-weight: 400;
+        color: #293845;
     }
 `

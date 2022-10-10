@@ -5,15 +5,12 @@ import styled from "styled-components"
 import baseUrl from "../url"
 import ShoppingCart from "../components/ShoppingCart"
 import SeatSelector from "../components/SeatSelector"
-import IdentificationBox from "../components/IdentificationBox"
+import Checkout from "../components/Checkout"
 
-export default function SeatsPage(){
+export default function SeatsPage({movie, session, chosenSeats, client, setMovie, setSession, setChosenSeats, setClient}){
 
     const {idSessao} = useParams()
-    const [chosenSeats, setChosenSeats] = useState([])
     const [seats, setSeats] = useState([])
-    const [day, setDay] = useState({})
-    const [movie, setMovie] = useState({})
 
     const [error, setError] = useState(false)
 
@@ -21,10 +18,10 @@ export default function SeatsPage(){
         const promise = axios.get(`${baseUrl}/showtimes/${idSessao}/seats`)
 
         promise.then((response) => {
-            const dayObj = {...day}
-            dayObj.weekday = response.data.day.weekday
-            dayObj.date = response.data.day.date
-            setDay(dayObj)
+            const sessionObj = {...session}
+            sessionObj.weekday = response.data.day.weekday
+            sessionObj.date = response.data.day.date
+            setSession(sessionObj)
             const movieObj = {...movie}
             movieObj.title = response.data.movie.title
             movieObj.posterURL = response.data.movie.posterURL
@@ -42,8 +39,8 @@ export default function SeatsPage(){
                 <p>Selecione o(s) assento(s)</p>
             </Container>
             <SeatSelector seats={seats} chosenSeats={chosenSeats} setChosenSeats={setChosenSeats}/>
-            <IdentificationBox chosenSeats={chosenSeats} movie={movie} day={day}/>
-            <ShoppingCart title={movie.title} posterURL={movie.posterURL} weekday={day.weekday} date={day.date}/>
+            <Checkout chosenSeats={chosenSeats} client={client} setClient={setClient}/>
+            <ShoppingCart title={movie.title} posterURL={movie.posterURL} weekday={session.weekday} date={session.date}/>
         </>
     )
 }

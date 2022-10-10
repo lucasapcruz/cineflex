@@ -1,8 +1,6 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
-import baseUrl from "../url"
+
 
 
 export default function SessionsList({ days }) {

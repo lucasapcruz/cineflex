@@ -6,6 +6,9 @@ export default function SeatSelector({ seats, chosenSeats, setChosenSeats }) {
             <SeatsContainer>
                 {seats.map((seat) => <Seat key={seat.id} name={seat.name} id={seat.id} isAvailable={seat.isAvailable} chosenSeats={chosenSeats} setChosenSeats={setChosenSeats}/>)}
             </SeatsContainer>
+            <Legend>
+
+            </Legend>
         </>
     )
 }
@@ -38,6 +41,12 @@ function handleColor(wasChosen, isAvailable) {
         }
     }
 }
+
+const Legend = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`
 
 const SeatStyle = styled.div`
     height: 26px;

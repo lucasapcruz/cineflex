@@ -1,7 +1,6 @@
-import axios from "axios"
 import styled from "styled-components"
 import Catalog from "../components/Catalog"
-import baseUrl from "../url"
+
 
 export default function HomePage(){
 
