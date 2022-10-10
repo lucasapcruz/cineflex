@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 
-export default function ShoppingCart({ title, posterURL }) {
+export default function ShoppingCart({ title, posterURL, weekday, date}) {
     return (
         <>
             <Container>
@@ -9,6 +9,7 @@ export default function ShoppingCart({ title, posterURL }) {
                     <img src={posterURL} />
                 </FramedContainer>
                 <p>{title}</p>
+                <p>{date} - {weekday}</p>
             </Container>
         </>
     )

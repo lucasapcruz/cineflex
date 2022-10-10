@@ -9,7 +9,7 @@ export default function Catalog(){
 
     const [movies, setMovies] = useState(undefined)
 
-    const [error, setError] = useState()
+    const [error, setError] = useState(false)
 
 
     useEffect(() => {

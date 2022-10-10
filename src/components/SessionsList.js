@@ -32,7 +32,7 @@ function ShowtimeOption({ time, id }) {
     const navigate = useNavigate()
 
     function selectSession(id) {
-        navigate(`${baseUrl}/showtimes/${id}/seats`)
+        navigate(`/assentos/${id}`)
     }
 
     return (
