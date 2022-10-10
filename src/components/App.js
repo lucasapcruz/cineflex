@@ -4,8 +4,13 @@ import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import Header from "./Header";
+import SessionPage from "../pages/SessionPage";
 
 export default function App() {
+
+    const [selectedMovie, setSelectedMovie] = useState()
+
+
     return (
         <>
             <BrowserRouter>
@@ -13,6 +18,7 @@ export default function App() {
                 <Header/>
                 <Routes>
                     <Route path="/" element={<HomePage/>}/>
+                    <Route path="/sessoes/:idFilme" element={<SessionPage/>}/>
                 </Routes>
             </BrowserRouter>
         </>

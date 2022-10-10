@@ -1,10 +1,12 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import baseUrl from "../url"
 
 
 export default function Catalog(){
+
     const [movies, setMovies] = useState(undefined)
 
     const [error, setError] = useState()
@@ -23,17 +25,23 @@ export default function Catalog(){
     
     return(
             <CatalogContainer>
-                {movies?.map((movie) => <Movie key={movie.id} posterURL={movie.posterURL} title={movie.title}/>)}
+                {movies?.map((movie) => <Movie key={movie.id} posterURL={movie.posterURL} title={movie.title} id={movie.id}/>)}
             </CatalogContainer>
     )
 }
 
 
-function Movie({posterURL, title}){
+function Movie({posterURL, title, id}){
+
+    const navigate = useNavigate()
+
+    function selectMovie(){
+        navigate(`/sessoes/${id}`)
+    }
 
     return(
         <FramedContainer>
-            <img src={posterURL} alt={title}></img>
+            <img src={posterURL} alt={title} onClick={() => selectMovie(id)}></img>
         </FramedContainer> 
     )
 }
