@@ -7,7 +7,7 @@ export default function Order({ movie, session, chosenSeats, client }) {
                 <Summary>
                     <h2>Filmes e Sessao</h2>
                     <p>{movie.title}</p>
-                    <p>{session.date} - {session.weekday}</p>
+                    <p>{session.date} {session.showtime}</p>
                 </Summary>
                 <Summary>
                     <h2>Ingressos</h2>

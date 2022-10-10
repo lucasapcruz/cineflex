@@ -21,6 +21,7 @@ export default function SeatsPage({movie, session, chosenSeats, client, setMovie
             const sessionObj = {...session}
             sessionObj.weekday = response.data.day.weekday
             sessionObj.date = response.data.day.date
+            sessionObj.showtime = response.data.name
             setSession(sessionObj)
             const movieObj = {...movie}
             movieObj.title = response.data.movie.title
@@ -40,7 +41,7 @@ export default function SeatsPage({movie, session, chosenSeats, client, setMovie
             </Container>
             <SeatSelector seats={seats} chosenSeats={chosenSeats} setChosenSeats={setChosenSeats}/>
             <Checkout chosenSeats={chosenSeats} client={client} setClient={setClient}/>
-            <ShoppingCart title={movie.title} posterURL={movie.posterURL} weekday={session.weekday} date={session.date}/>
+            <ShoppingCart title={movie.title} posterURL={movie.posterURL} session={session}/>
         </>
     )
 }
@@ -48,7 +49,7 @@ export default function SeatsPage({movie, session, chosenSeats, client, setMovie
 const Container = styled.div`
     margin-top: 67px;
     width: 100%;
-    height: 110px;
+    height: 90px;
     color: #293845;
     font-weight: 400;
     font-size: 24px;
@@ -57,4 +58,8 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+
+    p{
+        margin-top: 20px;
+    }
 `

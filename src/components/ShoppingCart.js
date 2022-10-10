@@ -1,19 +1,27 @@
 import styled from "styled-components"
 
 
-export default function ShoppingCart({ title, posterURL, weekday, date}) {
+export default function ShoppingCart({ title, posterURL, session}) {
+
+
     return (
         <>
             <Container>
                 <FramedContainer>
-                    <img src={posterURL} />
+                    <img src={posterURL} alt={title}/>
                 </FramedContainer>
-                <p>{title}</p>
-                <p>{date} - {weekday}</p>
+                <MovieInfoContainer>
+                    <p>{title}</p>
+                    {session != undefined? <p>{session.date} - {session.showtime}</p> : <p></p>}
+                </MovieInfoContainer>
             </Container>
         </>
     )
 }
+
+const MovieInfoContainer = styled.div`
+    width: 280px;
+`
 
 const Container = styled.div`
     height: 117px;
@@ -29,7 +37,7 @@ const Container = styled.div`
     p{  
         color:#293845;
         font-weight:400;
-        font-size:26px;
+        font-size:22px;
         line-height: 30px;
     }
 `

@@ -57,7 +57,7 @@ export default function Checkout({ chosenSeats, client, setClient }) {
                         <label htmlFor="cpf">CPF do comprador:</label>
                         <input type="cpf" value={cpf} required placeholder="Digite seu CPF..." onChange={e => setCpf(e.target.value)} />
                     </InputBox>
-                    <button type="submit">Reservar Assentos</button>
+                    <button type="submit">Reservar assento(s)</button>
                 </Container>
             </form>
         </>
@@ -68,7 +68,8 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top:44px;
+    width: 330px;
+    margin: 0 auto;
     
     button{
         background-color: #E8833A;
@@ -84,6 +85,8 @@ const Container = styled.div`
 `
 
 const InputBox = styled.div`
+    margin-top: 20px;
+
     input{
         height: 51px;
         width: 327px;

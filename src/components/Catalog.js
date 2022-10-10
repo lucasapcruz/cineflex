@@ -53,7 +53,7 @@ const FramedContainer = styled.div`
     padding: 8px;
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
-    margin-left: 30px;
+    margin-left: 27.5px;
     margin-bottom: 11px;
 
     img{
@@ -66,4 +66,5 @@ const CatalogContainer = styled.div`
     width: 375px;
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
 `
