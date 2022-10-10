@@ -11,7 +11,7 @@ export default function Order({ movie, session, chosenSeats, client }) {
                 </Summary>
                 <Summary>
                     <h2>Ingressos</h2>
-                    {chosenSeats.map((seat) => <p data-identifier="seat-infos-reserve-finished">Assento {seat}</p>)}
+                    {chosenSeats.map((seat) => <p data-identifier="seat-infos-reserve-finished">Assento {(seat%50).toString()}</p>)}
                 </Summary>
                 <Summary>
                     <h2>Comprador</h2>
